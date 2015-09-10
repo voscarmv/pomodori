@@ -33,6 +33,6 @@ describe pomodoro;
 
 grant select, insert, update, delete
 on pomodori.*
-to pomodori@localhost identified by 'tomatoes';
+to pomodori_user@localhost identified by 'tomatoes';
 
 select User from mysql.user;
