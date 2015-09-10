@@ -4,15 +4,16 @@ use pomodori;
 
 create table users (
         username varchar(16) not null primary key,
-        password varchar(40) not null,
+        password varchar(40) not null
 );
 
 create table deptree (
-        ix varchar(16) not null primary key,
+        ix varchar(16) not null,
         username varchar(16) not null,
         title tinytext not null,
         description text,
-        done boolean
+        done boolean,
+        primary key ( ix, username )
 );
 
 create table pomodoro (
@@ -20,5 +21,6 @@ create table pomodoro (
         username varchar(16) not null,
         start date not null,
         finish date not null,
-        report text
+        report text,
+        primary key ( ix, username )
 );
