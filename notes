@@ -1,2 +1,6 @@
 Thu Sep 10 09:59:24 CDT 2015
 	Play on words "tomato". Au"tomato", pomodoro = tomato in italian.
+Thu Sep 10 16:19:45 CDT 2015
+	Use meta tag for pure HTML pomodoro countdown:
+	<meta http-equiv="refresh" content="5; url=http://example.com/">
+	and maybe use animated countdown.gif
