@@ -7,6 +7,8 @@ create table users (
         password varchar(40) not null
 );
 
+describe users;
+
 create table deptree (
         ix varchar(16) not null,
         username varchar(16) not null,
@@ -16,6 +18,8 @@ create table deptree (
         primary key ( ix, username )
 );
 
+describe deptree;
+
 create table pomodoro (
         ix varchar(16) not null,
         username varchar(16) not null,
@@ -24,3 +28,11 @@ create table pomodoro (
         report text,
         primary key ( ix, username )
 );
+
+describe pomodoro;
+
+grant select, insert, update, delete
+on pomodori.*
+to pomodori@localhost identified by 'tomatoes';
+
+select User from mysql.user;
