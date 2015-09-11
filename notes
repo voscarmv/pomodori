@@ -4,3 +4,26 @@ Thu Sep 10 16:19:45 CDT 2015
 	Use meta tag for pure HTML pomodoro countdown:
 	<meta http-equiv="refresh" content="5; url=http://example.com/">
 	and maybe use animated countdown.gif
+Fri Sep 11 07:49:11 CDT 2015
+	PHP sessions are notoriously insecure.
+	One need only copy the PHP session ID to gain access to the user account information.
+	Some solutions for this problem are suggested.
+	The only "failsafe" solution seems to be asking for login/password info on every page.
+	But this is not practical.
+	Even SSL has had it's quirks.
+	IP identification is impractical it the user's behind a proxy or firewall.
+	There are three scenarios which I consider the riskiest:
+		- Attacker eavesdropping on http packets
+		- Attacker gains physical access to user terminal
+		- Attacker guesses session id
+	Some solutions:
+		https://www.owasp.org/index.php/Session_hijacking_attack
+		http://php.net/manual/en/session.security.php
+		http://stackoverflow.com/questions/328/php-session-security
+	Known threats:
+		https://www.openssl.org/news/vulnerabilities.html
+		https://en.wikipedia.org/wiki/POODLE
+		http://heartbleed.com/
+		https://www.us-cert.gov/ncas/current-activity/2015/03/06/FREAK-SSLTLS-Vulnerability
+		https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
+		https://www.owasp.org/index.php/Session_hijacking_attack
