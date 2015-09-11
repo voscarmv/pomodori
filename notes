@@ -17,6 +17,9 @@ Fri Sep 11 07:49:11 CDT 2015
 		- Attacker gains physical access to user terminal
 		- Attacker guesses session id
 	Some solutions:
+		http://security.stackexchange.com/questions/9628/list-of-web-session-attacks-and-counter-measures
+		http://security.stackexchange.com/questions/43529/does-setting-httponly-prevent-stealing-a-session-using-xss
+		https://www.owasp.org/index.php/HttpOnly
 		https://www.owasp.org/index.php/Session_hijacking_attack
 		http://php.net/manual/en/session.security.php
 		http://stackoverflow.com/questions/328/php-session-security
