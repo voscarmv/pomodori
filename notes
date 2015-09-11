@@ -11,7 +11,7 @@ Fri Sep 11 07:49:11 CDT 2015
 	The only "failsafe" solution seems to be asking for login/password info on every page.
 	But this is not practical.
 	Even SSL has had it's quirks.
-	IP identification is impractical it the user's behind a proxy or firewall.
+	IP identification is impractical if the user's behind a proxy or firewall.
 	There are three scenarios which I consider the riskiest:
 		- Attacker eavesdropping on http packets
 		- Attacker gains physical access to user terminal
