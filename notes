@@ -30,3 +30,8 @@ Fri Sep 11 07:49:11 CDT 2015
 		https://www.us-cert.gov/ncas/current-activity/2015/03/06/FREAK-SSLTLS-Vulnerability
 		https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
 		https://www.owasp.org/index.php/Session_hijacking_attack
+Sat Sep 12 09:43:17 CDT 2015
+	Implement nested set model for deptree
+		http://stackoverflow.com/questions/5916482/php-mysql-best-tree-structure
+		http://stackoverflow.com/questions/935098/database-structure-for-tree-data-structure
+		http://mikehillyer.com/articles/managing-hierarchical-data-in-mysql/
