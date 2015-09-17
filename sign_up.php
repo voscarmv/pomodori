@@ -1,7 +1,9 @@
-<?php
-
-?>
-	<h1>Registration</h1>
+<html>
+        <head>
+                <title>Registration</title>
+        </head>
+        <body>
+        	<h1>Registration</h1>
 <?php
 
 # Naive sign-up
@@ -14,29 +16,31 @@
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-?>
-	<p>
-<?php
-
 $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
-if(!$conn){
+
+if(mysqli_connect_error()){
 ?>
-	<p>Could not connect to database</p>
+	        <p>Could not connect to database</p>
+                <p><?php echo(mysqli_connect_error()); ?></p>
 <?php
 } else {
 ?>
-	<p>Connection with database successful</p>
+	        <p>Connection with database successful</p>
 <?php
 }
+
 $result = $conn->query("insert into users values ('$username', '$password');");
+
 if(!$result){
 ?>
-	<p>Could not register user</p>
+	        <p>Could not register user</p>
+                <p><?php echo($conn->error); ?></p>
 <?php
 } else {
 ?>
-	<p>User <b><?php echo $username ?></b> registration successful</p>
+                <p>User <b><?php echo $username ?></b> successfully registered.</p>
 <?php
 }
-
 ?>
+        </body>
+</html>
