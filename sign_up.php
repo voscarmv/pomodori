@@ -36,7 +36,6 @@ if(!$result){
 ?>
 	        <p>Could not register user</p>
                 <p><?php echo($conn->error); ?></p>
-                <p><a href="index.html">Go back home</a></p>
 <?php
 } else {
 ?>
@@ -44,5 +43,6 @@ if(!$result){
 <?php
 }
 ?>
+                <p><a href="index.html">Go back home</a></p>
         </body>
 </html>

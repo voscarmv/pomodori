@@ -9,24 +9,31 @@ create table users (
 
 describe users;
 
+create table projects (
+        ix int unsigned not null auto_increment primary key,
+        username varchar(16) not null,
+        title tinytext not null,
+        description text
+);
+
 create table deptree (
-        ix varchar(16) not null,
+        subix int unsigned not null auto_increment primary key,
+        ix int unsigned not null,
         username varchar(16) not null,
         title tinytext not null,
         description text,
-        done boolean,
-        primary key ( ix, username )
+        done boolean
 );
 
 describe deptree;
 
 create table pomodoro (
         ix varchar(16) not null,
+        subix int unsigned not null,
         username varchar(16) not null,
         start date not null,
         finish date not null,
-        report text,
-        primary key ( ix, username )
+        report text
 );
 
 describe pomodoro;
