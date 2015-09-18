@@ -40,14 +40,16 @@ if($result){
                 <p>Query successful</p>
 <?php
         if($result->num_rows > 0 ){
+                $_SESSION['valid_user'] = $username;   
         ?>
                 <p>Log in successful.</p>
                 <p>Welcome, <b><?php echo($username); ?></b>!</p>
-        <?php
-                $_SESSION['valid_user'] = $username;    
+                <p>Continue to <a href="control.php">control panel</a></p>
+        <?php 
         } else {
         ?>
                 <p>Could not log you in.</p>
+                <p><a href="index.html">Go back home</a></p>
         <?php
         }
 } else {

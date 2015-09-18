@@ -11,7 +11,8 @@
 #	_ Add password encryption
 #	_ Sanitize incoming strings
 #	_ Verify existence of user before registering
-#	_
+#	_ Check that username and password are not ""
+#       _
  
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -35,6 +36,7 @@ if(!$result){
 ?>
 	        <p>Could not register user</p>
                 <p><?php echo($conn->error); ?></p>
+                <p><a href="index.html">Go back home</a></p>
 <?php
 } else {
 ?>
