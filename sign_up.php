@@ -40,7 +40,7 @@ if(!$result){
 <?php
 } else {
 ?>
-                <p>User <b><?php echo $username ?></b> successfully registered.</p>
+                <p>User <b><?php echo($username); ?></b> successfully registered.</p>
 <?php
 }
 ?>
