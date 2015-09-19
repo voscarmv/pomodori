@@ -28,19 +28,18 @@ if(mysqli_connect_error()){
 ?>
 	        <p>Connection with database successful</p>
 <?php
-}
+        $result = $conn->query("insert into users values ('$username', '$password');");
 
-$result = $conn->query("insert into users values ('$username', '$password');");
-
-if(!$result){
-?>
-	        <p>Could not register user</p>
+        if(!$result){
+        ?>
+                <p>Could not register user</p>
                 <p><?php echo($conn->error); ?></p>
-<?php
-} else {
-?>
+        <?php
+        } else {
+        ?>
                 <p>User <b><?php echo($username); ?></b> successfully registered.</p>
-<?php
+        <?php
+        }
 }
 ?>
                 <p><a href="index.html">Go back home</a></p>
