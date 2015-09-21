@@ -6,6 +6,9 @@
                 <h1>Control panel</h1>
 
 <?php
+# TODO
+#       _ Use composite auto_increment trigger for table projects
+#       _
 session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];

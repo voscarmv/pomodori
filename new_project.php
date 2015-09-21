@@ -5,6 +5,9 @@
         <body>
                 <h1>New project</h1>
 <?php
+# TODO
+#       _ Forbid empty strings
+#       _
 session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];

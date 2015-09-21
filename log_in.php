@@ -42,7 +42,7 @@ if(mysqli_connect_error()){
                 ?>
                 <p>Log in successful.</p>
                 <p>Welcome, <b><?php echo($username); ?></b>!</p>
-                <p>Continue to <a href="control.php">control panel</a></p>
+                <p>Proceed to <a href="control.php">control panel</a></p>
                 <?php 
                 } else {
                 ?>

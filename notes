@@ -41,3 +41,9 @@ Mon Sep 21 10:14:52 CDT 2015
 		2. If none, then proceed to attempt queries.
 		3. If query fails, exit gracefully. Otherwise, continue.
 	If within session, then check for session before connecting to databese, and only attempt db connect if successful session.
+Mon Sep 21 16:29:39 CDT 2015
+	Use composite primary key with auto_increment for projects table:
+		http://stackoverflow.com/questions/18948983/mysql-autoincrement-field-in-composite-primary-key-for-each-unique-combination
+		http://stackoverflow.com/questions/15637080/composite-primary-key-and-auto-increment
+		http://stackoverflow.com/questions/5416548/mysql-two-column-primary-key-with-auto-increment
+	Google: "composite primary key with auto increment"
