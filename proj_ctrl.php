@@ -1,14 +1,15 @@
 <html>
         <head>
-                <title>Control panel</title>
+                <title>Manage project</title>
         </head>
         <body>
-                <h1>Control panel</h1>
+                <h1>Manage project</h1>
 
 <?php
 # TODO
 #       _ Use composite auto_increment trigger for table projects
 #       _
+
 session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
@@ -26,7 +27,8 @@ if(isset($_SESSION["valid_user"])){
         ?>
                 <p>Connection with database successful</p>
         <?php
-                $result = $conn->query("select * from projects where username='$username'");
+                $ix = $_GET["ix"];
+                $result = $conn->query("select * from projects where username='$username' and ix='$ix'");
 
                 if(!$result){
                 ?>
@@ -37,27 +39,22 @@ if(isset($_SESSION["valid_user"])){
                 } else {
                 ?>
                 <p>Query successful.</p>
-                <h2>Create a new project</h2>
-                <form action="new_project.php" method="post">
-                        <p><label>Project title: <input type="text" name="title"></label></p>
-                        <p><label>Description: <textarea name="description"></textarea></label></p>
-                        <p><input type="submit" value="Create"></p>
-                </form>
-                <h2>Current projects</h2>
-                <p><b><?php echo($username) ?></b>'s projects:</p>
                 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                        <p><b><a href="proj_ctrl.php?ix=<?php echo($row["ix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
-                                        <p><pre><?php echo($row["description"]); ?></pre></p>
+                <p><b><?php echo($row["title"]); ?></b></p>
+                <p><pre><?php echo($row["description"]); ?></pre></p>
                                 <?php
                                 }
                         } else {
                         ?>
-                <p>There are no projects.</p>
+                <p>No matching projects found.</p>
                         <?php
                         }
+                ?>
+                <p><a href="control.php">Go back to control panel</a></p>                
+                <?php
                 }
         }
 } else {
