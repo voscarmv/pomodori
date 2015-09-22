@@ -47,3 +47,14 @@ Mon Sep 21 16:29:39 CDT 2015
 		http://stackoverflow.com/questions/15637080/composite-primary-key-and-auto-increment
 		http://stackoverflow.com/questions/5416548/mysql-two-column-primary-key-with-auto-increment
 	Google: "composite primary key with auto increment"
+Tue Sep 22 10:27:24 CDT 2015
+	Use tables inside tables to illustrate task/subtask hierarchy.
+		<table><tr><td>
+			Task
+			<table><tr><td>
+				Subtask
+			</td></td></table>
+			<table><tr><td>
+				Subtask 2
+			</td></tr></table>
+		</td></tr></table>
