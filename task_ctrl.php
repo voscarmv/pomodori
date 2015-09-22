@@ -39,6 +39,7 @@ if(isset($_SESSION["valid_user"])){
                 } else {
 ?>
                 <p>Query successful.</p>
+                <h2>Tasks for this project</h2>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {

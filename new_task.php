@@ -28,7 +28,8 @@ if(isset($_SESSION["valid_user"])){
         ?>
 	                <p>Connection with database successful</p>
         <?php
-                $result = $conn->query("insert into projects values (null, '$username', '$title', '$description')");
+                $ix = $_GET["ix"];
+                $result = $conn->query("insert into deptree values (null, '$ix', '$username', '$title', '$description', false)");
 
                 if(!$result){
                 ?>
@@ -37,10 +38,10 @@ if(isset($_SESSION["valid_user"])){
                 <?php
                 } else {
                 ?>
-                                <p>New project added</p>
+                                <p>New task added</p>
                                 <p><b><?php echo($title); ?></b></p>
                                 <p><pre><?php echo($description); ?></pre></p>
-                                <a href="control.php">Back to control panel</a>
+                                <a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a>
                 <?php
                 }
         }

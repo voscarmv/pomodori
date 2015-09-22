@@ -64,7 +64,7 @@ if(isset($_SESSION["valid_user"])){
 ?>
                 <p>Query successful.</p>
                 <h2>Create a new task for this project</h2>
-                <form action="new_task.php" method="post">
+                <form action="new_task.php?ix=<?php echo($ix); ?>" method="post">
                         <p><label>Task title: <input type="text" name="title"></label></p>
                         <p><label>Description: <textarea name="description"></textarea></label></p>
                         <p><input type="submit" value="Create"></p>
