@@ -1,13 +1,13 @@
 <html>
         <head>
-                <title>Manage project</title>
+                <title>Manage task</title>
         </head>
         <body>
-                <h1>Manage project</h1>
+                <h1>Manage task</h1>
 
 <?php
 # TODO
-#       _ Use composite primary key auto_increment trigger for table projects
+#       _ Correct to manage tasks, not projects
 #       _
 
 session_start();
