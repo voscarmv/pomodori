@@ -28,7 +28,8 @@ if(isset($_SESSION["valid_user"])){
                 <p>Connection with database successful</p>
 <?php
                 $ix = $_GET["ix"];
-                $result = $conn->query("select * from projects where username='$username' and ix='$ix'");
+                $subix = $_GET["subix"];
+                $result = $conn->query("select * from deptree where username='$username' and ix='$ix' and subix='$subix'");
 
                 if(!$result){
 ?>
@@ -39,7 +40,6 @@ if(isset($_SESSION["valid_user"])){
                 } else {
 ?>
                 <p>Query successful.</p>
-                <h2>Tasks for this project</h2>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
@@ -50,37 +50,7 @@ if(isset($_SESSION["valid_user"])){
                                 }
                         } else {
 ?>
-                <p>No matching projects found.</p>
-<?php
-                        }
-                }
-                $result = $conn->query("select * from deptree where username='$username' and ix='$ix'");
-                if(!$result){
-?>
-                <p>Could not query <b><?php echo($username) ?></b>'s projects.</p>
-                <p><?php echo($conn->error); ?></p>
-                <p><a href="index.html">Go back home</a></p>
-<?php
-                } else {
-?>
-                <p>Query successful.</p>
-                <h2>Create a new task for this project</h2>
-                <form action="new_task.php" method="post">
-                        <p><label>Task title: <input type="text" name="title"></label></p>
-                        <p><label>Description: <textarea name="description"></textarea></label></p>
-                        <p><input type="submit" value="Create"></p>
-                </form>
-<?php
-                        if($result->num_rows > 0){
-                                while ($row = mysqli_fetch_array($result)) {
-?>
-                <p><b><?php echo($row["title"]); ?></b></p>
-                <p><pre><?php echo($row["description"]); ?></pre></p>
-<?php
-                                }
-                        } else {
-?>
-                <p>No matching projects found.</p>
+                <p>No tasks found.</p>
 <?php
                         }
                 }

@@ -49,7 +49,7 @@ if(isset($_SESSION["valid_user"])){
                                 }
                         } else {
 ?>
-                <p>No matching projects found.</p>
+                <p>No projects found.</p>
 <?php
                         }
                 }
@@ -69,17 +69,18 @@ if(isset($_SESSION["valid_user"])){
                         <p><label>Description: <textarea name="description"></textarea></label></p>
                         <p><input type="submit" value="Create"></p>
                 </form>
+                <h2>Tasks for this project</h2>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
-                <p><b><?php echo($row["title"]); ?></b></p>
+                <p><b><a href="task_ctrl.php?ix=<?php echo($ix); ?>&subix=<?php echo($row["subix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
                 <p><pre><?php echo($row["description"]); ?></pre></p>
 <?php
                                 }
                         } else {
 ?>
-                <p>No matching projects found.</p>
+                <p>No tasks found.</p>
 <?php
                         }
                 }
