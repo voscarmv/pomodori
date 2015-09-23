@@ -2,3 +2,10 @@ Mon Sep 21 16:33:58 CDT 2015
 	_ Links for projects list in control panel
 	_ Project task editor (second order control panel page)
 	_ Tree structure for deptree (project tasks)
+Tue Sep 22 20:38:49 CDT 2015
+	_ Test trigger for creating composite key autoincrement (see notes)
+	_ Implement trigger system by using autoincrement user_id colum
+	_ Propagate user_id in composite keys along tables 'projects' and 'deptree'
+		The projects for a single user should share the same user_id
+		The tasks for a project should share the same proj_id
+		proj_id and task_id should behave in accordance to composite key trigger
