@@ -9,3 +9,4 @@ Tue Sep 22 20:38:49 CDT 2015
 		The projects for a single user should share the same user_id
 		The tasks for a project should share the same proj_id
 		proj_id and task_id should behave in accordance to composite key trigger
+	_ Write project/tasks/subtasks display in nasted tables (see notes)
