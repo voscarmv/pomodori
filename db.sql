@@ -10,20 +10,48 @@ create table users (
 describe users;
 
 create table projects (
-        ix int unsigned not null auto_increment primary key,
         username varchar(16) not null,
+        ix int unsigned not null,
         title tinytext not null,
-        description text
+        description text,
+        primary key (username, ix)
 );
 
+# insert with
+#       insert into projects values("dos", 0, "projone", "ooooo");
+
+delimiter $$
+	create trigger tg_projects_insert
+	before insert on projects
+	for each row
+	begin
+		set new.ix = (select ifnull(max(ix), 0) + 1 from projects where username = new.username);
+	end $$
+delimiter ;
+
 create table deptree (
-        subix int unsigned not null auto_increment primary key,
         ix int unsigned not null,
+        subix int unsigned not null,
         username varchar(16) not null,
         title tinytext not null,
         description text,
-        done boolean
+        done boolean,
+        lft int not null,
+	rgt int not null
+        primary key (ix, subix, username)
 );
+
+# insert with
+#       insert into deptree values(1, 0, "oscar", "task1", "descripto", false, 1, 10);
+
+delimiter $$
+	create trigger tg_deptree_insert
+	before insert on deptree
+	for each row
+	begin
+		set new.subix = (select ifnull(max(subix), 0) + 1 from deptree where ix = new.ix);
+	end $$
+delimiter ;
 
 describe deptree;
 
