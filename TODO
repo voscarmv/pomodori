@@ -10,3 +10,6 @@ Tue Sep 22 20:38:49 CDT 2015
 		The tasks for a project should share the same proj_id
 		proj_id and task_id should behave in accordance to composite key trigger
 	_ Write project/tasks/subtasks display in nasted tables (see notes)
+Thu Sep 24 10:58:05 CDT 2015
+	_ Rewrite task_ctrl.php to display tree using nested model
+	_ When a task is clicked, write task_ctrl to display "add subtask" field on top (just like with proj_ctrl)

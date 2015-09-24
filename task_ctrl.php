@@ -8,7 +8,8 @@
 <?php
 # TODO
 #       _ Correct to manage tasks, not projects
-#       _
+#       _ Rewrite to use nested set model for data display.
+#	_
 
 session_start();
 if(isset($_SESSION["valid_user"])){

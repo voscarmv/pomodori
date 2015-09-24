@@ -37,7 +37,7 @@ create table deptree (
         description text,
         done boolean,
         lft int not null,
-	rgt int not null
+	rgt int not null,
         primary key (ix, subix, username)
 );
 

@@ -29,7 +29,7 @@ if(isset($_SESSION["valid_user"])){
 	                <p>Connection with database successful</p>
         <?php
                 $ix = $_GET["ix"];
-                $result = $conn->query("insert into deptree values (null, '$ix', '$username', '$title', '$description', false)");
+                $result = $conn->multi_query("insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, 1, 2); insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, 1, 2)");
 
                 if(!$result){
                 ?>
