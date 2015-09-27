@@ -41,12 +41,20 @@ if(isset($_SESSION["valid_user"])){
                 } else {
 ?>
                 <p>Query successful.</p>
+                <h2>Create a new subtask for this task</h2>
+                <form action="new_task.php?ix=<?php echo($ix); ?>" method="post">
+                        <p><label>Task title: <input type="text" name="title"></label></p>
+                        <p><label>Description: <textarea name="description"></textarea></label></p>
+                        <p><input type="submit" value="Create"></p>
+                </form>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
-                <p><b><?php echo($row["title"]); ?></b></p>
-                <p><pre><?php echo($row["description"]); ?></pre></p>
+                <table border="1"><tr><td>
+                        <p><b><?php echo($row["title"]); ?></b></p>
+                        <p><pre><?php echo($row["description"]); ?></pre></p>
+                </td></tr></table>
 <?php
                                 }
                         } else {

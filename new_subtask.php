@@ -1,18 +1,19 @@
 <html>
         <head>
-                <title>New task</title>
+                <title>New subtask</title>
         </head>
         <body>
-                <h1>New task</h1>
+                <h1>New subtask</h1>
 <?php
 # TODO
 #       _ Change to add task, not project
 #       _
+
 session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
 ?>
-                <p>Add a task</p>
+                <p>Add a subtask</p>
 <?php
         $title = $_POST["title"];
         $description = $_POST["description"];
@@ -29,9 +30,15 @@ if(isset($_SESSION["valid_user"])){
 	                <p>Connection with database successful</p>
         <?php
                 $ix = $_GET["ix"];
+                $subix = $_GET["subix"];
                 $query = ""
-                        ."select @myleft := max(rgt) from deptree where ix='$ix' and username='$username';"
-                        ."insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, ifnull(@myleft, 0) + 1, ifnull(@myleft, 0) + 2);"
+                        ."lock table deptree write;"
+                        ."select @myleft := lft from nested_category"
+                        ."where ix = '$ix' and subix = '$subix' and username = '$username';"
+                        ."update deptree set rgt = rgt + 2 where rgt > @myleft;"
+                        ."update deptree set lft = lft + 2 where lft > @myleft;"
+                        ."insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, @myleft + 1, @myleft + 2);"
+                        ."unlock tables;"
                 ;
                 $result = $conn->multi_query($query);
 

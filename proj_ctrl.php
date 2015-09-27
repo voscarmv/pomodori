@@ -72,11 +72,25 @@ if(isset($_SESSION["valid_user"])){
                 <h2>Tasks for this project</h2>
 <?php
                         if($result->num_rows > 0){
+                                $result2 = $conn->query("select max(rgt) from deptree where username='$username' and ix='$ix'");
+                                $maxrgt = mysqli_fetch_array($result2)[0];
+                                $html = array_fill(1, $maxrgt, "");
                                 while ($row = mysqli_fetch_array($result)) {
-?>
-                <p><b><a href="task_ctrl.php?ix=<?php echo($ix); ?>&subix=<?php echo($row["subix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
-                <p><pre><?php echo($row["description"]); ?></pre></p>
-<?php
+                                        $title = $row["title"];
+                                        $description = $row["description"];
+                                        $subix = $row["subix"];
+                                        $html[$row["lft"]] = ""
+                                                ."                <ul><li><table border=\"1\"><tr><td>\n"
+                                                ."                        <p><b><a href=\"task_ctrl.php?ix=$ix&subix=$subix\">$title</a></b></p>\n"
+                                                ."                        <p><pre>$description</pre></p>\n"
+
+                                        ;
+                                        $html[$row["rgt"]] = ""
+                                                ."                </td></tr></table></li></ul>\n"
+                                        ;
+                                }
+                                foreach($html as $value){
+                                        echo($value);
                                 }
                         } else {
 ?>

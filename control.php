@@ -18,24 +18,24 @@ if(isset($_SESSION["valid_user"])){
         $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
 
         if(mysqli_connect_error()){
-        ?>
+?>
                 <p>Could not connect to database</p>
                 <p><?php echo(mysqli_connect_error()); ?></p>
-        <?php
+<?php
         } else {
-        ?>
+?>
                 <p>Connection with database successful</p>
-        <?php
+<?php
                 $result = $conn->query("select * from projects where username='$username'");
 
                 if(!$result){
-                ?>
+?>
                 <p>Could not query <b><?php echo($username) ?></b>'s projects.</p>
                 <p><?php echo($conn->error); ?></p>
                 <p><a href="index.html">Go back home</a></p>
-                <?php
+<?php
                 } else {
-                ?>
+?>
                 <p>Query successful.</p>
                 <h2>Create a new project</h2>
                 <form action="new_project.php" method="post">
@@ -45,18 +45,18 @@ if(isset($_SESSION["valid_user"])){
                 </form>
                 <h2>Current projects</h2>
                 <p><b><?php echo($username) ?></b>'s projects:</p>
-                <?php
+<?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
-                                ?>
-                                        <p><b><a href="proj_ctrl.php?ix=<?php echo($row["ix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
-                                        <p><pre><?php echo($row["description"]); ?></pre></p>
-                                <?php
+?>
+                <p><b><a href="proj_ctrl.php?ix=<?php echo($row["ix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
+                <p><pre><?php echo($row["description"]); ?></pre></p>
+<?php
                                 }
                         } else {
-                        ?>
+?>
                 <p>There are no projects.</p>
-                        <?php
+<?php
                         }
                 }
         }
