@@ -49,7 +49,7 @@ delimiter $$
 	before insert on deptree
 	for each row
 	begin
-		set new.subix = (select ifnull(max(subix), 0) + 1 from deptree where ix = new.ix);
+		set new.subix = (select ifnull(max(subix), 0) + 1 from deptree where ix = new.ix and username = new.username);
 	end $$
 delimiter ;
 
