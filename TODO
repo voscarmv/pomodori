@@ -13,3 +13,13 @@ Tue Sep 22 20:38:49 CDT 2015
 Thu Sep 24 10:58:05 CDT 2015
 	_ Rewrite task_ctrl.php to display tree using nested model
 	_ When a task is clicked, write task_ctrl to display "add subtask" field on top (just like with proj_ctrl)
+Mon Sep 28 08:48:21 CDT 2015
+	_ Add project, task and subtask deletion capabilities
+	_ Finally add pomodoro technique!
+	_ Add pure HTML time to pomodoro technique
+	_ Make my PHP object-oriented
+	_ Maybe one day, relate multiple nodes with one adjacency table or something.
+		In reality, projects are graphs, not just trees. The same subtask may appear on multiple nodes.
+		To model this condition, a new table could be created, where multiple subtasks are related to eachother.
+		This way, completing one subtask will automatically complete many.
+		Many meta-tasks may depend upon the same subtask. A copy of the subtask could be selected to appear on many metas.

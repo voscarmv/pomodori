@@ -64,7 +64,7 @@ if(isset($_SESSION["valid_user"])){
                         }
                 }
 ?>
-                <p><a href="control.php">Go back to control panel</a></p>                
+                <p><a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a></p>
 <?php
         }
 } else {

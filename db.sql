@@ -42,7 +42,7 @@ create table deptree (
 );
 
 # insert with
-#       insert into deptree values(1, 0, "oscar", "task1", "descripto", false, 1, 10);
+#       insert into deptree values(1, 0, "oscar", "task1", "descrypto", false, 1, 10);
 
 delimiter $$
 	create trigger tg_deptree_insert
@@ -61,7 +61,8 @@ create table pomodoro (
         username varchar(16) not null,
         start date not null,
         finish date not null,
-        report text
+        report text,
+	primary key(ix, subix, username)
 );
 
 describe pomodoro;
