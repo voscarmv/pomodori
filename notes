@@ -61,3 +61,11 @@ Tue Sep 22 10:27:24 CDT 2015
 Tue Sep 22 20:20:28 CDT 2015
 	This is the appropriate method for composite primary key auto increment in mysql:
 		http://stackoverflow.com/questions/15752892/mysql-auto-increment-composite
+Mon Sep 28 09:17:22 CDT 2015
+	Check if lock tables is actually needed in new_subtask.php. Maybe it's not needed, because a single user can only add
+	a single subtask at a time (at least hypothetically).
+	I would have to split the table on a per-user basis, or somehow prevent the same user from logging into the same
+	account on two or more different computers, in able to avoid database collisions.
+	Or somehow redesign the database to tolerate such collisions. Who knows?
+	I think it would be easier to just guarantee that only a single use will be able to use the deptree table at
+	any given time.
