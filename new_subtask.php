@@ -33,11 +33,10 @@ if(isset($_SESSION["valid_user"])){
                 $subix = $_GET["subix"];
                 $query = ""
                         ."lock table deptree write;"
-                        ."select @myleft := lft from nested_category"
-                        ."where ix = '$ix' and subix = '$subix' and username = '$username';"
-                        ."update deptree set rgt = rgt + 2 where rgt > @myleft;"
-                        ."update deptree set lft = lft + 2 where lft > @myleft;"
-                        ."insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, @myleft + 1, @myleft + 2);"
+                        ."select @myrgt := rgt from deptree where ix = '$ix' and subix = '$subix' and username = '$username';"
+                        ."update deptree set rgt = rgt + 2 where rgt >= @myrgt;"
+                        ."update deptree set lft = lft + 2 where lft >= @myrgt;"
+                        ."insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, @myrgt, @myrgt + 1);"
                         ."unlock tables;"
                 ;
                 $result = $conn->multi_query($query);
@@ -49,10 +48,10 @@ if(isset($_SESSION["valid_user"])){
                 <?php
                 } else {
                 ?>
-                                <p>New task added</p>
+                                <p>New subtask added</p>
                                 <p><b><?php echo($title); ?></b></p>
                                 <p><pre><?php echo($description); ?></pre></p>
-                                <a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a>
+                                <a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
                 <?php
                 }
         }

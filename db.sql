@@ -66,7 +66,7 @@ create table pomodoro (
 
 describe pomodoro;
 
-grant select, insert, update, delete
+grant select, insert, update, delete, lock tables
 on pomodori.*
 to pomodori_user@localhost identified by 'tomatoes';
 
