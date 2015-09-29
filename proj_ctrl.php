@@ -4,7 +4,6 @@
         </head>
         <body>
                 <h1>Manage project</h1>
-
 <?php
 # TODO
 #       _ Use composite primary key auto_increment trigger for table projects
@@ -99,7 +98,7 @@ if(isset($_SESSION["valid_user"])){
                         }
                 }
 ?>
-                <p><a href="control.php">Go back to control panel</a></p>                
+                <p><a href="control.php">Go back to control panel</a></p>
 <?php
         }
 } else {

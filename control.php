@@ -4,11 +4,11 @@
         </head>
         <body>
                 <h1>Control panel</h1>
-
 <?php
 # TODO
 #       _ Use composite auto_increment trigger for table projects
 #       _
+
 session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
@@ -63,9 +63,9 @@ if(isset($_SESSION["valid_user"])){
 } else {
 ?>
                 <p>You are not logged in.</p>
-                <p><a href="index.html">Go back home</a></p>
 <?php
 }
 ?>
+                <p><a href="index.html">Go back home</a></p>
         </body>
 </html>

@@ -69,3 +69,5 @@ Mon Sep 28 09:17:22 CDT 2015
 	Or somehow redesign the database to tolerate such collisions. Who knows?
 	I think it would be easier to just guarantee that only a single use will be able to use the deptree table at
 	any given time.
+Mon Sep 28 21:04:31 CDT 2015
+	The pomodoro section shall contain a textbox and a timer... to start.
