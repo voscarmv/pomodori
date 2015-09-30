@@ -20,14 +20,14 @@ if(isset($_SESSION["valid_user"])){
         $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
 
         if(mysqli_connect_error()){
-        ?>
-	                <p>Could not connect to database</p>
-                        <p><?php echo(mysqli_connect_error()); ?></p>
-        <?php
+?>
+                <p>Could not connect to database</p>
+                <p><?php echo(mysqli_connect_error()); ?></p>
+<?php
         } else {
-        ?>
-	                <p>Connection with database successful</p>
-        <?php
+?>
+                <p>Connection with database successful</p>
+<?php
                 $ix = $_GET["ix"];
                 $subix = $_GET["subix"];
                 $start = $_POST["start"];
@@ -38,20 +38,20 @@ if(isset($_SESSION["valid_user"])){
 
                 $result = true;
                 if(!$result){
-                ?>
-	                        <p>Query failed</p>
-                                <p><?php echo($conn->error); ?></p>
-                <?php
+?>
+                <p>Query failed</p>
+                <p><?php echo($conn->error); ?></p>
+<?php
                 } else {
-                ?>
+?>
 		<table border="1"><tr><td>
                         <p><b>Start:</b> <?php echo($start); ?></p>
                         <p><b>Finish:</b> <?php echo($finish); ?></p>
                         <p>Report:</p>
                         <p><pre><?php echo($report); ?></pre></p>
 		</td></tr></table>
-                        <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
-                <?php
+                <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
+<?php
                 }
         }
 } else {
