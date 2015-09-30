@@ -44,11 +44,13 @@ if(isset($_SESSION["valid_user"])){
                 <?php
                 } else {
                 ?>
-                                <p><b>Start:</b> <?php echo($start); ?></p>
-                                <p><b>Finish:</b> <?php echo($finish); ?></p>
-                                <p>Report:</p>
-                                <p><pre><?php echo($report); ?></pre></p>
-                                <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
+		<table border="1"><tr><td>
+                        <p><b>Start:</b> <?php echo($start); ?></p>
+                        <p><b>Finish:</b> <?php echo($finish); ?></p>
+                        <p>Report:</p>
+                        <p><pre><?php echo($report); ?></pre></p>
+		</td></tr></table>
+                        <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
                 <?php
                 }
         }

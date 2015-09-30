@@ -23,11 +23,11 @@ if(isset($_SESSION["valid_user"])){
         ?>
 	                <p>Could not connect to database</p>
                         <p><?php echo(mysqli_connect_error()); ?></p>
-        <?php
+<?php
         } else {
-        ?>
+?>
 	                <p>Connection with database successful</p>
-        <?php
+<?php
                 $ix = $_GET["ix"];
                 $query = ""
                         ."select @myleft := max(rgt) from deptree where ix='$ix' and username='$username';"
@@ -36,17 +36,19 @@ if(isset($_SESSION["valid_user"])){
                 $result = $conn->multi_query($query);
 
                 if(!$result){
-                ?>
+?>
 	                        <p>Query failed</p>
                                 <p><?php echo($conn->error); ?></p>
-                <?php
+<?php
                 } else {
-                ?>
+?>
                                 <p>New task added</p>
-                                <p><b><?php echo($title); ?></b></p>
-                                <p><pre><?php echo($description); ?></pre></p>
+				<table border="1"><tr><td>
+		                        <p><b><?php echo($title); ?></b></p>
+		                        <p><pre><?php echo($description); ?></pre></p>
+				</td></tr></table>
                                 <a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a>
-                <?php
+<?php
                 }
         }
 } else {

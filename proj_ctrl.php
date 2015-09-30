@@ -42,8 +42,10 @@ if(isset($_SESSION["valid_user"])){
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
-                <p><b><?php echo($row["title"]); ?></b></p>
-                <p><pre><?php echo($row["description"]); ?></pre></p>
+		<table border="1"><tr><td>
+		        <p><b><?php echo($row["title"]); ?></b></p>
+		        <p><pre><?php echo($row["description"]); ?></pre></p>
+		</td></tr></table>
 <?php
                                 }
                         } else {

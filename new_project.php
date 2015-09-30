@@ -37,10 +37,12 @@ if(isset($_SESSION["valid_user"])){
                 <?php
                 } else {
                 ?>
-                                <p>New project added</p>
+                        <p>New project added</p>
+			<table border="1"><tr><td>
                                 <p><b><?php echo($title); ?></b></p>
                                 <p><pre><?php echo($description); ?></pre></p>
-                                <a href="control.php">Back to control panel</a>
+			</td></tr></table>
+                        <a href="control.php">Back to control panel</a>
                 <?php
                 }
         }

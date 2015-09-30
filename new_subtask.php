@@ -24,12 +24,12 @@ if(isset($_SESSION["valid_user"])){
         ?>
 	                <p>Could not connect to database</p>
                         <p><?php echo(mysqli_connect_error()); ?></p>
-        <?php
+<?php
         } else {
-        ?>
+?>
 	                <p>Connection with database successful</p>
-        <?php
-                $ix = $_GET["ix"];
+<?php
+	        $ix = $_GET["ix"];
                 $subix = $_GET["subix"];
                 $query = ""
                         ."lock table deptree write;"
@@ -42,17 +42,19 @@ if(isset($_SESSION["valid_user"])){
                 $result = $conn->multi_query($query);
 
                 if(!$result){
-                ?>
+?>
 	                        <p>Query failed</p>
                                 <p><?php echo($conn->error); ?></p>
-                <?php
-                } else {
-                ?>
+<?php
+	        } else {
+?>
                                 <p>New subtask added</p>
-                                <p><b><?php echo($title); ?></b></p>
-                                <p><pre><?php echo($description); ?></pre></p>
+				<table border="1"><tr><td>
+		                        <p><b><?php echo($title); ?></b></p>
+		                        <p><pre><?php echo($description); ?></pre></p>
+				</td></tr></table>
                                 <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
-                <?php
+<?php
                 }
         }
 } else {
