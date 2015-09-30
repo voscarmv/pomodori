@@ -1,15 +1,14 @@
 <html>
         <head>
-                <title>Manage task</title>
+                <title>Do a pomodoro</title>
         </head>
         <body>
-                <h1>Manage task</h1>
+                <h1>Do a pomodoro</h1>
 
 <?php
 # TODO
-#       _ Correct to manage tasks, not projects
-#       _ Rewrite to use nested set model for data display.
-#	_
+#       _ Pure HTML timer
+
 
 session_start();
 if(isset($_SESSION["valid_user"])){
@@ -39,13 +38,15 @@ if(isset($_SESSION["valid_user"])){
                 <p><a href="index.html">Go back home</a></p>
 <?php
                 } else {
+                        $start = date('Y-m-d H:i:s');
 ?>
                 <p>Query successful.</p>
-                <h2>Create a new subtask for this task</h2>
-                <form action="new_subtask.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">
-                        <p><label>Task title: <input type="text" name="title"></label></p>
-                        <p><label>Description: <textarea name="description"></textarea></label></p>
-                        <p><input type="submit" value="Create"></p>
+                <h2>Do a pomodoro for this task</h2>
+                <p>This pomodoro started at <?php echo($start); ?></p>
+                <form action="new_pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">
+                        <p><label>Report: <textarea name="report"></textarea></label></p>
+                        <p><input type="submit" value="Finish"></p>
+                        <input type="hidden" name="start" value="<?php echo($start); ?>">
                 </form>
 <?php
                         if($result->num_rows > 0){
@@ -53,7 +54,6 @@ if(isset($_SESSION["valid_user"])){
 ?>
                 <table border="1"><tr><td>
                         <p><b><?php echo($row["title"]); ?></b></p>
-                        <p><a href="pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Start a pomodoro</a></p>
                         <p><pre><?php echo($row["description"]); ?></pre></p>
                 </td></tr></table>
 <?php
@@ -61,37 +61,6 @@ if(isset($_SESSION["valid_user"])){
                         } else {
 ?>
                 <p>No tasks found.</p>
-<?php
-                        }
-                }
-
-# Display pomodori for this task
-
-                $result = $conn->query("select * from pomodoro where username='$username' and ix='$ix' and subix='$subix'");
-
-                if(!$result){
-?>
-                <p>Could not query <b><?php echo($username) ?></b>'s pomodori.</p>
-                <p><?php echo($conn->error); ?></p>
-                <p><a href="index.html">Go back home</a></p>
-<?php
-                } else {
-?>
-                <p>Query successful.</p>
-                <h2>Pomodori for this task</h2>
-<?php
-                        if($result->num_rows > 0){
-                                while ($row = mysqli_fetch_array($result)) {
-?>
-                <p><b>Start:</b> <?php echo($row["start"]); ?></p>
-                <p><b>Finish:</b> <?php echo($row["finish"]); ?></p>
-                <p>Report:</p>
-                <p><pre><?php echo($row["report"]); ?></pre></p>
-<?php
-                                }
-                        } else {
-?>
-                <p>No pomodori found.</p>
 <?php
                         }
                 }

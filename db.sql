@@ -58,12 +58,22 @@ describe deptree;
 create table pomodoro (
         ix varchar(16) not null,
         subix int unsigned not null,
+        pomodoroid int unsigned not null,
         username varchar(16) not null,
-        start date not null,
-        finish date not null,
+        start datetime not null,
+        finish datetime not null,
         report text,
-	primary key(ix, subix, username)
+	primary key(ix, subix, pomodoroid, username)
 );
+
+delimiter $$
+	create trigger tg_pomodoro_insert
+	before insert on pomodoro
+	for each row
+	begin
+		set new.pomodoroid = (select ifnull(max(pomodoroid), 0) + 1 from pomodoro where ix = new.ix and subix = new.subix and username = new.username);
+	end $$
+delimiter ;
 
 describe pomodoro;
 

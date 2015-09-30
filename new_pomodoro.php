@@ -1,13 +1,12 @@
 <html>
         <head>
-                <title>New subtask</title>
+                <title>New pomodoro</title>
         </head>
         <body>
-                <h1>New subtask</h1>
+                <h1>New pomodoro</h1>
 <?php
 # TODO
-#       _ Change to add task, not project
-#       _
+#       _ 
 
 session_start();
 if(isset($_SESSION["valid_user"])){
@@ -31,16 +30,13 @@ if(isset($_SESSION["valid_user"])){
         <?php
                 $ix = $_GET["ix"];
                 $subix = $_GET["subix"];
-                $query = ""
-                        ."lock table deptree write;"
-                        ."select @myrgt := rgt from deptree where ix = '$ix' and subix = '$subix' and username = '$username';"
-                        ."update deptree set rgt = rgt + 2 where rgt >= @myrgt;"
-                        ."update deptree set lft = lft + 2 where lft >= @myrgt;"
-                        ."insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, @myrgt, @myrgt + 1);"
-                        ."unlock tables;"
-                ;
-                $result = $conn->multi_query($query);
+                $start = $_POST["start"];
+                $finish = date('Y-m-d H:i:s');
+                $report = $_POST["report"];
+                $query = "insert into pomodoro values ('$ix', '$subix', 0, '$username', '$start', '$finish', '$report')";
+                $result = $conn->query($query);
 
+                $result = true;
                 if(!$result){
                 ?>
 	                        <p>Query failed</p>
@@ -48,9 +44,10 @@ if(isset($_SESSION["valid_user"])){
                 <?php
                 } else {
                 ?>
-                                <p>New subtask added</p>
-                                <p><b><?php echo($title); ?></b></p>
-                                <p><pre><?php echo($description); ?></pre></p>
+                                <p><b>Start:</b> <?php echo($start); ?></p>
+                                <p><b>Finish:</b> <?php echo($finish); ?></p>
+                                <p>Report:</p>
+                                <p><pre><?php echo($report); ?></pre></p>
                                 <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
                 <?php
                 }
