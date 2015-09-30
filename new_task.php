@@ -47,7 +47,7 @@ if(isset($_SESSION["valid_user"])){
                         <p><b><?php echo($title); ?></b></p>
                         <p><pre><?php echo($description); ?></pre></p>
 		</td></tr></table>
-                <a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a>
+                <p><a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a><p>
 <?php
                 }
         }
