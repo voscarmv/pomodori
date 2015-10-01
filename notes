@@ -87,3 +87,15 @@ Thu Oct  1 08:08:36 CDT 2015
 	"between lft and rgt" will be used. That should take care of the tasks, but I need a way to find all pomodori
 	belonging to those tasks "between lft and rgt". That is: a way to iterate along all the ixes and subixes
 	of the tasks "between lft and rgt".
+Thu Oct  1 08:39:01 CDT 2015
+	Consider the following mysql queries:
+		select * from projects inner join deptree inner join pomodoro where projects.username=deptree.username and projects.username='2' and projects.ix=deptree.ix and pomodoro.ix= ...;
+		DELETE FROM employees, offices 
+USING employees, offices 
+WHERE employees.officeCode = offices.officeCode  AND 
+      offices.officeCode = 1
+		http://www.mysqltutorial.org/mysql-delete-statement.aspx
+		http://www.mysqltutorial.org/mysql-delete-statement.aspx
+		http://stackoverflow.com/questions/2214433/mysql-delete-row-from-multiple-tables
+		http://stackoverflow.com/questions/734567/delete-rows-from-multiple-tables
+
