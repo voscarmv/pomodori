@@ -29,6 +29,8 @@ delimiter $$
 	end $$
 delimiter ;
 
+describe projects;
+
 create table deptree (
         ix int unsigned not null,
         subix int unsigned not null,

@@ -71,3 +71,19 @@ Mon Sep 28 09:17:22 CDT 2015
 	any given time.
 Mon Sep 28 21:04:31 CDT 2015
 	The pomodoro section shall contain a textbox and a timer... to start.
+Thu Oct  1 08:08:36 CDT 2015
+	To delete a project, all tasks and subtasks for the project must be deleted.
+	To delete a task, all subtasks and their corresponding pomodori must be deleted.
+	To delete a pomodoro, just the pomodoro has to be deleted.
+
+	I should start by deleting pomodori, then tasks/subtasks, then projects.
+
+	I'm thinking deleting tasks may prove the hardest, perhaps use a trigger so that when a task is deleted, all
+	it's pomodory go down with it as well.
+
+	Or maybe it would be best to write a query to generalize task/pomodoro deletion.
+
+	Deleting a single task may generate collateral deletions. To find the subtasks belonging to a task, something like
+	"between lft and rgt" will be used. That should take care of the tasks, but I need a way to find all pomodori
+	belonging to those tasks "between lft and rgt". That is: a way to iterate along all the ixes and subixes
+	of the tasks "between lft and rgt".
