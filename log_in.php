@@ -34,27 +34,27 @@ if(mysqli_connect_error()){
         $result = $conn->query($query);
 
         if($result){
-        ?>
+?>
                 <p>Query successful</p>
-        <?php
+<?php
                 if($result->num_rows > 0 ){
                         $_SESSION['valid_user'] = $username;   
-                ?>
+?>
                 <p>Log in successful.</p>
                 <p>Welcome, <b><?php echo($username); ?></b>!</p>
                 <p>Proceed to <a href="control.php">control panel</a></p>
-                <?php 
+<?php 
                 } else {
-                ?>
+?>
                 <p>Could not log you in.</p>
                 <p><a href="index.html">Go back home</a></p>
-                <?php
+<?php
                 }
         } else {
-        ?>
+?>
                 <p>Query failed.</p>
                 <p><?php echo($conn->error); ?></p>
-        <?php
+<?php
         }
 }
 ?>

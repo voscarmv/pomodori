@@ -1,9 +1,9 @@
 <html>
         <head>
-                <title>New pomodoro</title>
+                <title>Delete pomodoro</title>
         </head>
         <body>
-                <h1>New pomodoro</h1>
+                <h1>Delete pomodoro</h1>
 <?php
 # TODO
 #       _ 
@@ -12,7 +12,7 @@ session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
 ?>
-                <p>Add a subtask</p>
+                <p>Delete pomodoro</p>
 <?php
         $title = $_POST["title"];
         $description = $_POST["description"];
@@ -30,10 +30,8 @@ if(isset($_SESSION["valid_user"])){
 <?php
                 $ix = $_GET["ix"];
                 $subix = $_GET["subix"];
-                $start = $_POST["start"];
-                $finish = date('Y-m-d H:i:s');
-                $report = $_POST["report"];
-                $query = "insert into pomodoro values ('$ix', '$subix', 0, '$username', '$start', '$finish', '$report')";
+                $pomodoroid = $_GET["pomodoroid"];
+                $query = "delete from pomodoro where ix='$ix' and subix='$subix' and pomodoroid='$pomodoroid'";
                 $result = $conn->query($query);
 
                 if(!$result){
@@ -43,12 +41,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
                 } else {
 ?>
-		<table border="1"><tr><td>
-                        <p><b>Start:</b> <?php echo($start); ?></p>
-                        <p><b>Finish:</b> <?php echo($finish); ?></p>
-                        <p>Report:</p>
-                        <p><pre><?php echo($report); ?></pre></p>
-		</td></tr></table>
+                <p>Pomodoro deleted.</p>
                 <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
 <?php
                 }

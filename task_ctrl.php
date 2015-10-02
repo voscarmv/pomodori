@@ -83,12 +83,13 @@ if(isset($_SESSION["valid_user"])){
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
-		<table border="1"><tr><td>
+		<p><table border="1"><tr><td>
 		        <p><b>Start:</b> <?php echo($row["start"]); ?></p>
 		        <p><b>Finish:</b> <?php echo($row["finish"]); ?></p>
+                        <p><a href="delete_pomodoro.php?ix=<?php echo($row["ix"]); ?>&subix=<?php echo($row["subix"]); ?>&pomodoroid=<?php echo($row["pomodoroid"]); ?>">Delete this pomodoro</a></p>
 		        <p>Report:</p>
 		        <p><pre><?php echo($row["report"]); ?></pre></p>
-		</td></tr></table>
+		</td></tr></table></p>
 <?php
                                 }
                         } else {

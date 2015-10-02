@@ -31,14 +31,14 @@ if(mysqli_connect_error()){
         $result = $conn->query("insert into users values ('$username', '$password');");
 
         if(!$result){
-        ?>
+?>
                 <p>Could not register user</p>
                 <p><?php echo($conn->error); ?></p>
-        <?php
+<?php
         } else {
-        ?>
+?>
                 <p>User <b><?php echo($username); ?></b> successfully registered.</p>
-        <?php
+<?php
         }
 }
 ?>
