@@ -54,6 +54,7 @@ if(isset($_SESSION["valid_user"])){
                 <table border="1"><tr><td>
                         <p><b><?php echo($row["title"]); ?></b></p>
                         <p><a href="pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Start a pomodoro</a></p>
+                        <p><a href="delete_task.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Delete task and subtasks</a></p>
                         <p><pre><?php echo($row["description"]); ?></pre></p>
                 </td></tr></table>
 <?php
