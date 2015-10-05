@@ -72,7 +72,7 @@ if(isset($_SESSION["valid_user"])){
                 } else {
 ?>
                 <p>Task deleted along with corresponding subtasks and pomodori.</p>
-                <a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a>
+                <a href="control.php">Back to project management</a>
 <?php
                 }
         }
