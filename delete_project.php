@@ -41,7 +41,7 @@ if(isset($_SESSION["valid_user"])){
                 } else {
 ?>
                 <p>Project deleted.</p>
-                <a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a>
+                <a href="control.php">Back to control panel</a>
 <?php
                 }
         }

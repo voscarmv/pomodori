@@ -49,11 +49,11 @@ if(isset($_SESSION["valid_user"])){
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
-		<table border="1"><tr><td>
+		<p><table border="1"><tr><td>
 		        <p><b><a href="proj_ctrl.php?ix=<?php echo($row["ix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
                         <p><a href="delete_project.php?ix=<?php echo($row["ix"]); ?>" method="post">Delete project</a></p>
 		        <p><pre><?php echo($row["description"]); ?></pre></p>
-		</td></tr></table>
+		</td></tr></table></p>
 <?php
                                 }
                         } else {
