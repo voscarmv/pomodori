@@ -94,3 +94,18 @@ Thu Oct  1 08:39:01 CDT 2015
 		http://stackoverflow.com/questions/2214433/mysql-delete-row-from-multiple-tables
 		http://stackoverflow.com/questions/734567/delete-rows-from-multiple-tables
 
+Sun Oct  4 21:44:05 CDT 2015
+	Entry deletion done. Still TODO:
+		- Mark tasks as pending / done
+			If pending, allow marking as done. If done, allow marking as pending.
+		- Delete account.
+	After that, maybe improve pure HTML design a little.
+	Include pure HTML timer.
+	THEN:
+	Start general improvement:
+		- Improve security
+			Consider downloading secure session handling pre-written library
+		- Implement design pattern
+			Read PHP design patterns book
+			Read object oriented PHP book
+			Implement techniques taught there
