@@ -49,7 +49,7 @@ if(isset($_SESSION["valid_user"])){
                         <p>Report:</p>
                         <p><pre><?php echo($report); ?></pre></p>
 		</td></tr></table>
-                <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
+                <p><a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a></p>
 <?php
                 }
         }
