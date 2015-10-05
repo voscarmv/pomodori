@@ -51,7 +51,7 @@ if(isset($_SESSION["valid_user"])){
 ?>
 		<table border="1"><tr><td>
 		        <p><b><a href="proj_ctrl.php?ix=<?php echo($row["ix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
-                        <p><a href="delete_project.php?ix=<?php echo($ix); ?>" method="post">Delete project</a></p>
+                        <p><a href="delete_project.php?ix=<?php echo($row["ix"]); ?>" method="post">Delete project</a></p>
 		        <p><pre><?php echo($row["description"]); ?></pre></p>
 		</td></tr></table>
 <?php
