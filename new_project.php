@@ -42,7 +42,7 @@ if(isset($_SESSION["valid_user"])){
                         <p><b><?php echo($title); ?></b></p>
                         <p><pre><?php echo($description); ?></pre></p>
 		</td></tr></table>
-                <a href="control.php">Back to control panel</a>
+                <p><a href="control.php">Back to control panel</a></p>
 <?php
                 }
         }
