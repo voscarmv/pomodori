@@ -44,6 +44,7 @@ if(isset($_SESSION["valid_user"])){
 ?>
 		<table border="1"><tr><td>
 		        <p><b><?php echo($row["title"]); ?></b></p>
+                        <p><a href="delete_project.php?ix=<?php echo($row["ix"]); ?>" method="post">Delete project</a></p>
 		        <p><pre><?php echo($row["description"]); ?></pre></p>
 		</td></tr></table>
 <?php
