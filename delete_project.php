@@ -29,7 +29,7 @@ if(isset($_SESSION["valid_user"])){
                 $query = ""
                         . "delete from projects where ix = '$ix' and username = '$username'; "
                         . "delete from deptree where ix = '$ix' and username = '$username'; "
-                        . "delete from pomodori where ix = '$ix' and username = '$username'; "
+                        . "delete from pomodoro where ix = '$ix' and username = '$username'; "
                 ;
                 $result = $conn->multi_query($query);
 
