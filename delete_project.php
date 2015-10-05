@@ -1,9 +1,9 @@
 <html>
         <head>
-                <title>Delete task</title>
+                <title>Delete project</title>
         </head>
         <body>
-                <h1>Delete task</h1>
+                <h1>Delete project</h1>
 <?php
 # TODO
 #       _ 
@@ -12,7 +12,7 @@ session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
 ?>
-                <p>Delete pomodoro</p>
+                <p>Delete project</p>
 <?php
         $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
 
