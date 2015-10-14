@@ -109,3 +109,12 @@ Sun Oct  4 21:44:05 CDT 2015
 			Read PHP design patterns book
 			Read object oriented PHP book
 			Implement techniques taught there
+Wed Oct 14 11:07:59 CDT 2015
+	Note that debian handles session timeout through
+		/etc/cron.d/php5
+		09,39 *     * * *     root   [ -x /usr/lib/php5/sessionclean ] && /usr/lib/php5/sessionclean
+	I tried to do an hour-long pomodoro like this. But my session expired before I could push the "Finish" button.
+	It would seem that ini_set('session.gc_maxlifetime', 3600); won't work here, because /usr/lib/php5/sessionclean reads
+	gc_maxlifetime directly from /etc/php5/apache2/php.ini
+	So I'll have to either cancel the cron job by commenting it out from /etc/cron.d/php5 or change php.ini to extend
+	gc_maxlifetime
