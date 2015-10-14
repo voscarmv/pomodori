@@ -26,7 +26,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
         } else {
 ?>
-                <p>Connection with database successful</p>
+                <!-- <p>Connection with database successful</p> -->
 <?php
                 $result = $conn->query("insert into projects values ('$username', 0, '$title', '$description')");
 

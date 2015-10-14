@@ -14,6 +14,7 @@ if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
 ?>
                 <p><a href="log_out.php">Log out</a></p>
+                <table border="1"><tr><td>
 <?php
         $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
 
@@ -24,7 +25,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
         } else {
 ?>
-                <p>Connection with database successful</p>
+                <!-- <p>Connection with database successful</p> -->
 <?php
                 $result = $conn->query("select * from projects where username='$username'");
 
@@ -36,13 +37,16 @@ if(isset($_SESSION["valid_user"])){
 <?php
                 } else {
 ?>
-                <p>Query successful.</p>
+                <!-- <p>Query successful.</p> -->
                 <h2>Create a new project</h2>
                 <form action="new_project.php" method="post">
                         <p><label>Project title: <input type="text" name="title"></label></p>
                         <p><label>Description: <textarea name="description"></textarea></label></p>
                         <p><input type="submit" value="Create"></p>
                 </form>
+
+                </td><td>
+
                 <h2>Current projects</h2>
                 <p><b><?php echo($username) ?></b>'s projects:</p>
 <?php
@@ -68,6 +72,9 @@ if(isset($_SESSION["valid_user"])){
 <?php
 }
 ?>
+
+                </td></tr></table>
+
                 <p><a href="index.html">Go back home</a></p>
         </body>
 </html>

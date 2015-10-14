@@ -15,6 +15,7 @@ if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
 ?>
                 <p><a href="log_out.php">Log out</a></p>
+                <table border="1"><tr><td>
 <?php
         $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
 
@@ -25,7 +26,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
         } else {
 ?>
-                <p>Connection with database successful</p>
+                <!-- <p>Connection with database successful</p> -->
 <?php
                 $ix = $_GET["ix"];
                 $subix = $_GET["subix"];
@@ -40,20 +41,13 @@ if(isset($_SESSION["valid_user"])){
                 } else {
                         $start = date('Y-m-d H:i:s');
 ?>
-                <p>Query successful.</p>
-                <h2>Do a pomodoro for this task</h2>
-                <p>This pomodoro started at <?php echo($start); ?></p>
-                <form action="new_pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">
-                        <p><label>Report: <textarea name="report"></textarea></label></p>
-                        <p><input type="submit" value="Finish"></p>
-                        <input type="hidden" name="start" value="<?php echo($start); ?>">
-                </form>
+                <h2>Task</h2>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
                 <table border="1"><tr><td>
-                        <p><b><?php echo($row["title"]); ?></b></p>
+                        <p><b><?php echo($row["title"]); ?></b><?php echo ($row["done"] == true ? " [DONE]" : " [PENDING]") ?></p>
                         <p><pre><?php echo($row["description"]); ?></pre></p>
                 </td></tr></table>
 <?php
@@ -63,8 +57,24 @@ if(isset($_SESSION["valid_user"])){
                 <p>No tasks found.</p>
 <?php
                         }
+?>
+                <!-- <p>Query successful.</p> -->
+
+                </td><td>
+
+                <h2>Do a pomodoro for this task</h2>
+                <p>This pomodoro started at <?php echo($start); ?></p>
+                <form action="new_pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">
+                        <p><label>Report: <textarea name="report"></textarea></label></p>
+                        <p><input type="submit" value="Finish"></p>
+                        <input type="hidden" name="start" value="<?php echo($start); ?>">
+                </form>
+<?php
                 }
 ?>
+
+                </td></tr></table>
+
                 <p><a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a></p>
 <?php
         }

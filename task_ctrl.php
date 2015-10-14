@@ -16,6 +16,7 @@ if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
 ?>
                 <p><a href="log_out.php">Log out</a></p>
+                <table border="1"><tr><td>
 <?php
         $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
 
@@ -26,7 +27,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
         } else {
 ?>
-                <p>Connection with database successful</p>
+                <!-- <p>Connection with database successful</p> -->
 <?php
                 $ix = $_GET["ix"];
                 $subix = $_GET["subix"];
@@ -40,22 +41,29 @@ if(isset($_SESSION["valid_user"])){
 <?php
                 } else {
 ?>
-                <p>Query successful.</p>
-                <h2>Create a new subtask for this task</h2>
-                <form action="new_subtask.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">
-                        <p><label>Task title: <input type="text" name="title"></label></p>
-                        <p><label>Description: <textarea name="description"></textarea></label></p>
-                        <p><input type="submit" value="Create"></p>
-                </form>
+                <!-- <p>Query successful.</p> -->
+                <h2>Task</h2>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
                 <table border="1"><tr><td>
-                        <p><b><?php echo($row["title"]); ?></b></p>
-                        <p><a href="pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Start a pomodoro</a></p>
-                        <p><a href="delete_task.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Delete task and subtasks</a></p>
+                        <p><b><?php echo($row["title"]); ?></b><?php echo ($row["done"] == true ? " [DONE]" : " [PENDING]") ?></p>
                         <p><pre><?php echo($row["description"]); ?></pre></p>
+                </td></tr><tr><td>
+                        <p><a href="pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Start a pomodoro</a></p>
+<?php
+                                        if($row["done"] == false){
+?>
+                        <p><a href="task_done.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Mark task as done</a></p>
+<?php
+                                        } else {
+?>
+                        <p><a href="task_pending.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Mark task as pending</a></p>
+<?php
+                                        }
+?>
+                        <p><a href="delete_task.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">Delete task and subtasks</a></p>
                 </td></tr></table>
 <?php
                                 }
@@ -64,10 +72,17 @@ if(isset($_SESSION["valid_user"])){
                 <p>No tasks found.</p>
 <?php
                         }
+?>
+                <h2>Create a new subtask for this task</h2>
+                <form action="new_subtask.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">
+                        <p><label>Task title: <input type="text" name="title"></label></p>
+                        <p><label>Description: <textarea name="description"></textarea></label></p>
+                        <p><input type="submit" value="Create"></p>
+                </form>
+
+                </td><td>
+<?php
                 }
-
-# Display pomodori for this task
-
                 $result = $conn->query("select * from pomodoro where username='$username' and ix='$ix' and subix='$subix'");
 
                 if(!$result){
@@ -78,7 +93,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
                 } else {
 ?>
-                <p>Query successful.</p>
+                <!-- <p>Query successful.</p> -->
                 <h2>Pomodori for this task</h2>
 <?php
                         if($result->num_rows > 0){
@@ -100,6 +115,9 @@ if(isset($_SESSION["valid_user"])){
                         }
                 }
 ?>
+
+                </td></tr></table>
+
                 <p><a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a></p>
 <?php
         }

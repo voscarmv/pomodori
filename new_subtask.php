@@ -27,7 +27,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
         } else {
 ?>
-                <p>Connection with database successful</p>
+                <!-- <p>Connection with database successful</p> -->
 <?php
 	        $ix = $_GET["ix"];
                 $subix = $_GET["subix"];

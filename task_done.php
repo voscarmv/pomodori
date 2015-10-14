@@ -1,9 +1,9 @@
 <html>
         <head>
-                <title>Delete pomodoro</title>
+                <title>Mark task as done</title>
         </head>
         <body>
-                <h1>Delete pomodoro</h1>
+                <h1>Mark task as done</h1>
 <?php
 # TODO
 #       _ 
@@ -12,7 +12,7 @@ session_start();
 if(isset($_SESSION["valid_user"])){
         $username = $_SESSION["valid_user"];
 ?>
-                <p>Delete pomodoro</p>
+                <p>Mark task as done</p>
 <?php
         $title = $_POST["title"];
         $description = $_POST["description"];
@@ -26,12 +26,11 @@ if(isset($_SESSION["valid_user"])){
 <?php
         } else {
 ?>
-                <!-- <p>Connection with database successful</p> -->
+                <p>Connection with database successful</p>
 <?php
                 $ix = $_GET["ix"];
                 $subix = $_GET["subix"];
-                $pomodoroid = $_GET["pomodoroid"];
-                $query = "delete from pomodoro where ix='$ix' and subix='$subix' and pomodoroid='$pomodoroid'";
+                $query = "update deptree set done=true where ix='$ix' and subix='$subix'";
                 $result = $conn->query($query);
 
                 if(!$result){
@@ -41,7 +40,7 @@ if(isset($_SESSION["valid_user"])){
 <?php
                 } else {
 ?>
-                <p>Pomodoro deleted.</p>
+                <p>Task marked as done</p>
                 <a href="task_ctrl.php?ix=<?php echo("$ix"); ?>&subix=<?php echo("$subix"); ?>">Back to task management</a>
 <?php
                 }

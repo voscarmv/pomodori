@@ -25,7 +25,7 @@ if(mysqli_connect_error()){
 <?php
 } else {
 ?>
-                <p>Connection with database successful</p>
+                <!-- <p>Connection with database successful</p> -->
 <?php
         $query = "select * from users "
                 ."where username='$username' "
@@ -35,7 +35,7 @@ if(mysqli_connect_error()){
 
         if($result){
 ?>
-                <p>Query successful</p>
+                <!-- <p>Query successful</p> -->
 <?php
                 if($result->num_rows > 0 ){
                         $_SESSION['valid_user'] = $username;   
