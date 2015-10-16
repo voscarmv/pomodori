@@ -91,7 +91,7 @@ if(isset($_SESSION["valid_user"])){
                                                 $html[$row["lft"]] = ""
                                                         ."                <ul><li><table border=\"1\"><tr><td>\n"
                                                         ."                        <p><b><a href=\"task_ctrl.php?ix=$ix&subix=$subix\">$title</a></b>"
-                                                        .($row["done"] == true ? " [DONE]" : " [PENDING]")
+                                                        .($row["done"] == true ? " [<i><b>DONE</b></i>]" : " [PENDING]")
                                                         ."</p>\n"
                                                         ."                        <p><pre>$description</pre></p>\n"
 

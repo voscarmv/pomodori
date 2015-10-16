@@ -47,7 +47,7 @@ if(isset($_SESSION["valid_user"])){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
                 <table border="1"><tr><td>
-                        <p><b><?php echo($row["title"]); ?></b><?php echo ($row["done"] == true ? " [DONE]" : " [PENDING]") ?></p>
+                        <p><b><?php echo($row["title"]); ?></b><?php echo ($row["done"] == true ? " [<i><b>DONE</b></i>]" : " [PENDING]") ?></p>
                         <p><pre><?php echo($row["description"]); ?></pre></p>
                 </td></tr></table>
 <?php
