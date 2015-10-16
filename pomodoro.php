@@ -64,6 +64,7 @@ if(isset($_SESSION["valid_user"])){
 
                 <h2>Do a pomodoro for this task</h2>
                 <p>This pomodoro started at <?php echo($start); ?></p>
+                <iframe src="timer.php" width="200" height="120"></iframe>
                 <form action="new_pomodoro.php?ix=<?php echo($ix); ?>&subix=<?php echo($subix); ?>" method="post">
                         <p><label>Report: <textarea name="report"></textarea></label></p>
                         <p><input type="submit" value="Finish"></p>
