@@ -118,3 +118,9 @@ Wed Oct 14 11:07:59 CDT 2015
 	gc_maxlifetime directly from /etc/php5/apache2/php.ini
 	So I'll have to either cancel the cron job by commenting it out from /etc/cron.d/php5 or change php.ini to extend
 	gc_maxlifetime
+Fri Oct 16 15:44:56 CDT 2015
+	The site now works as intended. This is the best it's gonna get with only HTML and PHP. From here on, I can only
+	improve on it through CSS/JavaScript, etc.
+
+	Perhaps one last thing to do would be to add PHP substitution for those DAMNED single quotes. But from there on, I
+	will be DEFILING my work with the OBSCENITIES of CSS and JS. DAMN YOU CSS! DAMN YOU TO HELL!
