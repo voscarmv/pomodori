@@ -124,3 +124,11 @@ Fri Oct 16 15:44:56 CDT 2015
 
 	Perhaps one last thing to do would be to add PHP substitution for those DAMNED single quotes. But from there on, I
 	will be DEFILING my work with the OBSCENITIES of CSS and JS. DAMN YOU CSS! DAMN YOU TO HELL!
+Fri Oct 16 15:47:10 CDT 2015
+	As I was saying: up to this point, I have avoided the following things:
+		- Style (CSS)
+		- Dynamic content (JS)
+		- Security (string sanitizing/parsing)
+	To date, the project is "pure".
+		Time to start defiling...
+			Time to start using those new trendy things kids today consider "groovy".
