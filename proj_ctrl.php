@@ -82,7 +82,9 @@ if(isset($_SESSION["valid_user"])){
                         if($result->num_rows > 0){
                                 $result2 = $conn->query("select max(rgt) from deptree where username='$username' and ix='$ix'");
                                 if(result2){
-                                        $maxrgt = mysqli_fetch_array($result2)[0];
+                                        $maxrgt = mysqli_fetch_array($result2);
+#					000webhosts doesnt like mysqli_fetch_array($result2)[0], maybe because it uses php5
+					$maxrgt = $maxrgt[0];
                                         $html = array_fill(1, $maxrgt, "");
                                         while ($row = mysqli_fetch_array($result)) {
                                                 $title = $row["title"];
