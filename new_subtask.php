@@ -18,7 +18,7 @@ if(isset($_SESSION["valid_user"])){
         $title = $_POST["title"];
         $description = $_POST["description"];
 
-        $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
+        $conn = new mysqli('mysql12.000webhost.com','a7915442_pomodor','70m47035','a7915442_pomodor');
 
         if(mysqli_connect_error()){
 ?>
