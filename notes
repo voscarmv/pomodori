@@ -134,3 +134,9 @@ Fri Oct 16 15:47:10 CDT 2015
 			Time to start using those new trendy things kids today consider "groovy".
 Sat Oct 17 17:14:12 CDT 2015
 	This branch contains a version suitable for www.000webhost.com
+Sat Oct 17 17:26:11 CDT 2015
+	000webhosts requires the following parameters to work with their mysql database:
+		$mysql_host = "mysql12.000webhost.com";
+		$mysql_database = "a7915442_pomodor";
+		$mysql_user = "a7915442_pomodor";
+		$mysql_password = "70m47035";
