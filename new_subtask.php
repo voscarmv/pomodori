@@ -34,8 +34,8 @@ if(isset($_SESSION["valid_user"])){
                 $query = ""
                         ."lock table deptree write;"
                         ."select @myrgt := rgt from deptree where ix = '$ix' and subix = '$subix' and username = '$username';"
-                        ."update deptree set rgt = rgt + 2 where rgt >= @myrgt;"
-                        ."update deptree set lft = lft + 2 where lft >= @myrgt;"
+                        ."update deptree set rgt = rgt + 2 where rgt >= @myrgt and ix = '$ix' and username = '$username';"
+                        ."update deptree set lft = lft + 2 where lft >= @myrgt and ix = '$ix' and username = '$username';"
                         ."insert into deptree values ('$ix', 0, '$username', '$title', '$description', false, @myrgt, @myrgt + 1);"
                         ."unlock tables;"
                 ;
