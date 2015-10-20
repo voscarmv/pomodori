@@ -1,4 +1,6 @@
 <?php
+        // Prevent session from closing
+        session_start();
         $present = time();
         if(isset($_GET['start'])){
                 $start = $_GET['start'];
