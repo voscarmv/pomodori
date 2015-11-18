@@ -1,13 +1,15 @@
 <html>
         <head>
-                <title>Control panel</title>
+                <title>Project pomodori</title>
         </head>
         <body>
-                <h1>Control panel</h1>
+                <h1>Project pomodori</h1>
+
 <?php
 # TODO
-#       _ Use composite auto_increment trigger for table projects
-#       _
+#       _ Correct to manage tasks, not projects
+#       _ Rewrite to use nested set model for data display.
+#	_
 
 session_start();
 if(isset($_SESSION["valid_user"])){
@@ -27,56 +29,51 @@ if(isset($_SESSION["valid_user"])){
 ?>
                 <!-- <p>Connection with database successful</p> -->
 <?php
-                $result = $conn->query("select * from projects where username='$username'");
+                $ix = $_GET["ix"];
+                $result = $conn->query("select * from pomodoro where username='$username' and ix='$ix'");
 
                 if(!$result){
 ?>
-                <p>Could not query <b><?php echo($username) ?></b>'s projects.</p>
+                <p>Could not query <b><?php echo($username) ?></b>'s pomodori.</p>
                 <p><?php echo($conn->error); ?></p>
                 <p><a href="index.html">Go back home</a></p>
 <?php
                 } else {
 ?>
                 <!-- <p>Query successful.</p> -->
-                <h2>Create a new project</h2>
-                <form action="new_project.php" method="post">
-                        <p><label>Project title: <input type="text" name="title"></label></p>
-                        <p><label>Description: <textarea name="description"></textarea></label></p>
-                        <p><input type="submit" value="Create"></p>
-                </form>
-
-                <p><a href="all_pomodori.php" method="post">View all pomodori</a></p>
-
-                </td><td>
-
-                <h2>Current projects</h2>
-                <p><b><?php echo($username) ?></b>'s projects:</p>
+                <h2>Pomodori for this task</h2>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
 ?>
 		<p><table border="1"><tr><td>
-		        <p><b><a href="proj_ctrl.php?ix=<?php echo($row["ix"]); ?>"><?php echo($row["title"]); ?></a></b></p>
-		        <p><pre><?php echo($row["description"]); ?></pre></p>
+		        <p><b>Start:</b> <?php echo($row["start"]); ?></p>
+		        <p><b>Finish:</b> <?php echo($row["finish"]); ?></p>
+                        <p><a href="delete_pomodoro.php?ix=<?php echo($row["ix"]); ?>&subix=<?php echo($row["subix"]); ?>&pomodoroid=<?php echo($row["pomodoroid"]); ?>">Delete this pomodoro</a></p>
+		        <p>Report:</p>
+		        <p><pre><?php echo($row["report"]); ?></pre></p>
 		</td></tr></table></p>
 <?php
                                 }
                         } else {
 ?>
-                <p>There are no projects.</p>
+                <p>No pomodori found.</p>
 <?php
                         }
                 }
-        }
-} else {
-?>
-                <p>You are not logged in.</p>
-<?php
-}
 ?>
 
                 </td></tr></table>
 
+                <p><a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a></p>
+<?php
+        }
+} else {
+?>
+                <p>You are not logged in.</p>
                 <p><a href="index.html">Go back home</a></p>
+<?php
+}
+?>
         </body>
 </html>

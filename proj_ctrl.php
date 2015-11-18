@@ -49,6 +49,7 @@ if(isset($_SESSION["valid_user"])){
 		        <p><pre><?php echo($row["description"]); ?></pre></p>
 		</td></tr><tr><td>
                         <p><a href="delete_project.php?ix=<?php echo($row["ix"]); ?>" method="post">Delete project</a></p>
+                        <p><a href="proj_pomodori.php?ix=<?php echo($row["ix"]); ?>" method="post">View project pomodori</a></p>
 		</td></tr></table>
 <?php
                                 }
