@@ -18,7 +18,7 @@ if(isset($_SESSION["valid_user"])){
                 <p><a href="log_out.php">Log out</a></p>
                 <table border="1"><tr><td>
 <?php
-        $conn = new mysqli('mysql12.000webhost.com','a7915442_pomodor','70m47035','a7915442_pomodor');
+        $conn = new mysqli('localhost', 'pomodori_user', 'tomatoes', 'pomodori');
 
         if(mysqli_connect_error()){
 ?>
@@ -40,7 +40,7 @@ if(isset($_SESSION["valid_user"])){
                 } else {
 ?>
                 <!-- <p>Query successful.</p> -->
-                <h2>Pomodori for this task</h2>
+                <h2>Complete pomodori listing</h2>
 <?php
                         if($result->num_rows > 0){
                                 while ($row = mysqli_fetch_array($result)) {
@@ -64,7 +64,7 @@ if(isset($_SESSION["valid_user"])){
 
                 </td></tr></table>
 
-                <p><a href="proj_ctrl.php?ix=<?php echo("$ix"); ?>">Back to project management</a></p>
+                <p><a href="control.php">Back to control panel</a></p>
 <?php
         }
 } else {
