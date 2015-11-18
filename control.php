@@ -45,6 +45,8 @@ if(isset($_SESSION["valid_user"])){
                         <p><input type="submit" value="Create"></p>
                 </form>
 
+                <p><a href="all_pomodori.php" method="post">View all pomodori</a></p>
+
                 </td><td>
 
                 <h2>Current projects</h2>
