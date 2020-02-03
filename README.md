@@ -22,10 +22,6 @@ For example: one task may require you to finish three other subtasks first. On t
 
 The app allows you to keep notes for each pomodoro as you work on it. You can then consult these notes to keep track of your progress.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Contact info
 
 **Oscar Mier**
