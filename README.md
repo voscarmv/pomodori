@@ -20,7 +20,7 @@ The idea is to create a nested structure of pending tasks, and then start workin
 
 For example: one task may require you to finish three other subtasks first. On the interface, you're able to create this task structure, and then start working on each task using a pomodoro timer provided with the code.
 
-The app allows you to log in notes for each pomodoro. You can then consult these notes to keep track of your progress.
+The app allows you to keep notes for each pomodoro as you work on it. You can then consult these notes to keep track of your progress.
 
 ## Contributing
 
