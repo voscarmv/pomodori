@@ -6,11 +6,11 @@ This project is for instructional purposes only! It has not been secured or thor
 
 ## Getting Started
 
-You will have to set up LAMP, either on a virtual machine, or on a real server.
+You will have to [set up LAMP](https://medium.com/better-programming/how-to-install-lamp-stack-on-ubuntu-db77ac018116), either on a virtual machine, or on a real server.
 
 ### Installing
 
-Simply copy the HTML and PHP files to the server and run [db.sql](https://github.com/voscarmv/pomodori/blob/master/db.sql) on the database.
+Simply copy the HTML and PHP files to the server's public_html folder and run [db.sql](https://github.com/voscarmv/pomodori/blob/master/db.sql) on the database.
 
 ## Usage
 
